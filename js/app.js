@@ -11,30 +11,30 @@
 //}]);
 
 var app = angular.module('ctsweb', []);
-app.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.
-        when('/', {templateUrl: 'partials/home.html'}).
-        when('/discografia', {templateUrl: 'partials/discografia.html'}).
-        when('/conciertos', {templateUrl: 'partials/conciertos.html'}).
-        otherwise({redirectTo: '/'});
-}]);
+//app.config(['$routeProvider', function($routeProvider) {
+//    $routeProvider.
+//        when('/', {templateUrl: 'partials/home.html'}).
+//        when('/discografia', {templateUrl: 'partials/discografia.html'}).
+//        when('/conciertos', {templateUrl: 'partials/conciertos.html'}).
+//        otherwise({redirectTo: '/'});
+//}]);
 //app.controller('MainCtrl', function($scope) {
 //    $scope.name = 'World';
 //});
 
-app.controller('Controller', function($scope){
-    $scope.test = true;
-    $scope.toggle = function(){ $scope.test = !$scope.test;  };
+app.controller('GeneralController', function($scope){
+    $scope.title = "Inicio";
+//    $scope.toggle = function(){ $scope.test = !$scope.test;  };
 });
 
-app.directive('ngShow2', function(){
-    return {
-        replace: true,
-        restrict: 'A',
-        link: function(scope, elem, attr) {
-            scope.$watch(attr.ngShow2, function(val) {
-                elem.css('display', value ? '' : 'none');
-            });
-        }
-    };
-});
+//app.directive('ngShow2', function(){
+//    return {
+//        replace: true,
+//        restrict: 'A',
+//        link: function(scope, elem, attr) {
+//            scope.$watch(attr.ngShow2, function(val) {
+//                elem.css('display', value ? '' : 'none');
+//            });
+//        }
+//    };
+//});

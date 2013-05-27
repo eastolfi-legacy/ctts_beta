@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
-    <head>
+<html ng-app="ctsweb">
+    <head ng-controller="GeneralController">
+        <title ng-bind-template="Close to the Sky | {{title}}" >Close to the Sky</title>
+
         <link href="../css/bootstrap/bootstrap.css" rel="stylesheet" />
         <link href="../css/general.css" rel="stylesheet" />
 
@@ -28,8 +30,6 @@
                 $(firstChildren).css('margin-top', (num + 100) + 'px');
             });
         </script>
-
-        <title>Close to the Sky</title>
     </head>
     <body>
         <div class="page_container span9">
