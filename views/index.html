@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="../css/bootstrap/bootstrap.css" rel="stylesheet" />
+        <link href="../css/general.css" rel="stylesheet" />
+
+        <script src="../js/jquery/jquery-2.0.1.js" ></script>
+
+        <script>
+            $(document).ready(function() {
+                var num = 150; //number of pixels before modifying styles
+
+                $(window).bind('scroll', function () {
+                    if ($(window).scrollTop() > num) {
+                        $('#menu_container').addClass('menu_fixed');
+                        $('#menu_container').addClass('navbar-fixed-top');
+                        $('#menu_container').addClass('span9');
+                        $('#menu_container').removeClass('menu_not_fixed');
+                    } else {
+                        $('#menu_container').addClass('menu_not_fixed');
+                        $('#menu_container').removeClass('menu_fixed');
+                        $('#menu_container').removeClass('span9');
+                        $('#menu_container').removeClass('navbar-fixed-top');
+                    }
+                });
+            });
+        </script>
+
+        <title>Close to the Sky</title>
+    </head>
+    <body>
+        <div class="page_container span9">
+            <div class="header_container span9 menu_not_fixed">
+                <div class="banner_container span9">
+                    <img src="../img/cttsBanner_small.jpg" />
+                </div>
+                <div id="menu_container" class="menu_container">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <ul class="nav">
+                                <li class="active">
+                                    <a href="">Ola</a>
+                                </li>
+                                <li>
+                                    <a href="">Ke Ase</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content_container">
+                asd
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            </div>
+            <div class="footer_container navbar-fixed-bottom">
+                <p> ajsdfn askjdfn adf asdasd@asdasda.asc</p>
+            </div>
+        </div>
+    </body>
+</html>

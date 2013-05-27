@@ -1,0 +1,23 @@
+.page_container, .footer_container {
+    margin-left: 15%;
+    /*margin-right: 15%;*/
+}
+.header_container {
+    /*margin-left: 15%;*/
+    /*margin-right: 15%;*/
+}
+.banner_container img {
+    margin-left: -20px;
+}
+
+.content_container {
+    margin-top: 40px;
+}
+
+.menu_not_fixed {
+
+}
+
+.menu_fixed {
+    margin-left: 15%;
+}
