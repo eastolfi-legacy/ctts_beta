@@ -1,0 +1,33 @@
+<!--<div ng-controller="CollapseDemoCtrl">-->
+    <!--<button class="btn" ng-click="mCollapse('item1')">Toggle collapse1</button>-->
+    <!--<hr>-->
+    <!--<div id="item1" collapse="collapsedItems['item1']">-->
+        <!--<div class="well well-large">Some content</div>-->
+    <!--</div>-->
+    <!--<button class="btn" ng-click="mCollapse('item2')">Toggle collapse2</button>-->
+    <!--<div id="item2" collapse="collapsedItems['item2']">-->
+        <!--<div class="well well-large">Some content</div>-->
+    <!--</div>-->
+<!--</div>-->
+<ul id="list_discografia" ng-controller="DiscografiaCtrl" >
+    <li ng-repeat="(key, disco) in discos">
+        <a ng-click="mCollapse(key)">{{key}}</a>
+        <ul id="disco_{{key}}" collapse="collapsedItems[key]">
+            <li ng-repeat="cancion in disco">
+                <a ng-click="open(key, cancion)">{{cancion}}</a>
+            </li>
+        </ul>
+    </li>
+    <div modal="shouldBeOpen" close="close()" options="opts">
+        <div class="modal-header">
+            <h4>{{selectedParent}} - {{selectedItem}}</h4>
+        </div>
+        <div class="modal-body">
+            <h5>Canciones</h5>
+            <h5>Videos</h5>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-warning cancel" ng-click="close()">Cancel</button>
+        </div>
+    </div>
+</ul>

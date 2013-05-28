@@ -7,27 +7,32 @@
         <link href="../css/general.css" rel="stylesheet" />
 
         <script src="../js/jquery/jquery-2.0.1.js" ></script>
+        <script src="../lib/angular/angular.js"></script>
+        <script src="../lib/angular/angular-resource.js"></script>
+        <script src="../js/bootstrap-gh-pages/ui-bootstrap-0.3.0.js"></script>
+        <!--<script src="../js/jzaefferer-jquery-treeview-3937863/jquery.treeview.js" type="text/javascript"></script>-->
+        <script src="../js/app.js"></script>
+        <script src="../js/controllers.js"></script>
+        <script src="../js/filters.js"></script>
+        <script src="../js/services.js"></script>
+        <script src="../lib/myLib.js"></script>
 
         <script>
-            $(document).ready(function() {
-                var num = 150; //number of pixels before modifying styles
-
-                $(window).bind('scroll', function () {
-                    if ($(window).scrollTop() > num) {
-                        $('#menu_container').addClass('menu_fixed');
-                        $('#menu_container').addClass('navbar-fixed-top');
-                        $('#menu_container').addClass('span9');
-                        $('#menu_container').removeClass('menu_not_fixed');
-                    } else {
-                        $('#menu_container').addClass('menu_not_fixed');
-                        $('#menu_container').removeClass('menu_fixed');
-                        $('#menu_container').removeClass('span9');
-                        $('#menu_container').removeClass('navbar-fixed-top');
-                    }
+//            $scope.$on('$viewContentLoaded', function(){
+//                var scrollHeight = 150;
+//                menuFixedOnScroll("#menu_container", scrollHeight, function() {
+//                    var childrens = $(".content_container").children();
+//                    var firstChildren = childrens[0];
+//                    $(firstChildren).css('margin-top', (scrollHeight - 25) + 'px');
+//                });
+//            });
+            $(document).ready(function() {    // Quitar jQuery
+                var scrollHeight = 150;
+                menuFixedOnScroll("#menu_container", scrollHeight, function() {     //Mejorar
+                    var childrens = $(".content_container").children();
+                    var firstChildren = childrens[0];
+//                    $(firstChildren).css('margin-top', (scrollHeight - 25) + 'px');
                 });
-                var childrens = $(".content_container").children();
-                var firstChildren = childrens[0];
-                $(firstChildren).css('margin-top', (num + 100) + 'px');
             });
         </script>
     </head>
@@ -42,23 +47,20 @@
                         <div class="navbar-inner">
                             <ul class="nav">
                                 <li class="active">
-                                    <a href="">Ola</a>
+                                    <a href="#/">Inicio</a>
                                 </li>
                                 <li>
-                                    <a href="">Ke Ase</a>
+                                    <a href="#/discografia">Discografía</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="content_container">
-                <h6>Titulo</h6>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div ng-view class="content_container span9">
+
             </div>
-            <div class="footer_container navbar-fixed-bottom">
+            <div class="footer_container">
                 <p> ajsdfn askjdfn adf asdasd@asdasda.asc</p>
             </div>
         </div>

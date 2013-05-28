@@ -21,3 +21,11 @@
 .menu_fixed {
     margin-left: 15%;
 }
+
+.home_new {
+    margin-bottom: 50px;
+}
+
+#list_discografia li a {
+    cursor: pointer;
+}

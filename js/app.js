@@ -10,22 +10,29 @@
 //      otherwise({redirectTo: '/phones'});
 //}]);
 
-var app = angular.module('ctsweb', []);
-//app.config(['$routeProvider', function($routeProvider) {
-//    $routeProvider.
-//        when('/', {templateUrl: 'partials/home.html'}).
-//        when('/discografia', {templateUrl: 'partials/discografia.html'}).
+var app = angular.module('ctsweb', ['ui.bootstrap']);
+
+
+var generalController = app.controller('GeneralController', function($scope){
+    $scope.setTitle = function(title) {
+        $scope.title = title;
+    }
+
+//    $scope.toggle = function(){ $scope.test = !$scope.test;  };
+});
+
+//generalController.$inject(['$scope', 'title']);
+
+app.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.
+        when('/', {templateUrl: 'inicio.html'}).
+        when('/discografia', {templateUrl: 'discografia.html'}).
 //        when('/conciertos', {templateUrl: 'partials/conciertos.html'}).
-//        otherwise({redirectTo: '/'});
-//}]);
+        otherwise({redirectTo: '/'});
+}]);
 //app.controller('MainCtrl', function($scope) {
 //    $scope.name = 'World';
 //});
-
-app.controller('GeneralController', function($scope){
-    $scope.title = "Inicio";
-//    $scope.toggle = function(){ $scope.test = !$scope.test;  };
-});
 
 //app.directive('ngShow2', function(){
 //    return {
