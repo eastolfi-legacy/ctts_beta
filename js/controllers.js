@@ -20,6 +20,13 @@ function DiscografiaCtrl($scope) {
     $scope.mCollapse = function(itemId) {
         $scope.collapsedItems[itemId] = !$scope.collapsedItems[itemId];
     }
+
+    var content = '<h1>ola ke ase</h1>';
+
+    $scope.panes = [
+        { title:"Imágenes", content:content, active: true },
+        { title:"Videos", content:"Dynamic content 2" }
+    ];
     var maqueta = ['Track 1', 'Track 2', 'Track 3'];
     var disco1 = ['Cancion 1', 'Cancion 2'];
     var live = ['Intro', 'Cancion 1', 'Cancion 2', 'Ending'];
@@ -27,33 +34,16 @@ function DiscografiaCtrl($scope) {
     $scope.discos = discos;
 }
 
-//function PhoneListCtrl($scope, Phone) {
-////  $http.get('phones/phones.json').success(function(data) {
-////    $scope.phones = data;
-////  });
-//
-//    $scope.phones = Phone.query();
-//    $scope.orderProp = 'age';
-//}
 
-//PhoneListCtrl.$inject = ['$scope', '$http'];
+function ContentCtrl($scope, $http) {
+    $scope.url = 'content.json';
+    $scope.content = [];
 
-//function Controller($scope) {
-//    $scope.test = true;
-//    $scope.toggle = function(){ $scope.test = !$scope.test;  };
-//}
+    $scope.fetchContent = function() {
+        $http.get($scope.url).then(function(result){
+            $scope.content = result.data;
+        });
+    }
 
-//function PhoneDetailCtrl($scope, $routeParams, Phone) {
-////  $http.get('phones/' + $routeParams.phoneId + '.json').success(function(data) {
-////        $scope.phone = data;
-////        $scope.mainImageUrl = data.images[0];
-////  });
-//    $scope.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
-//        $scope.mainImageUrl = phone.images[0];
-//    });
-//    $scope.setImage = function(imageUrl) {
-//        $scope.mainImageUrl = imageUrl;
-//    }
-//}
-
-//PhoneDetailCtrl.$inject = ['$scope', '$routeParams', '$http'];
+    $scope.fetchContent();
+}

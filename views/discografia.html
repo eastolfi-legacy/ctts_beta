@@ -1,18 +1,7 @@
-<!--<div ng-controller="CollapseDemoCtrl">-->
-    <!--<button class="btn" ng-click="mCollapse('item1')">Toggle collapse1</button>-->
-    <!--<hr>-->
-    <!--<div id="item1" collapse="collapsedItems['item1']">-->
-        <!--<div class="well well-large">Some content</div>-->
-    <!--</div>-->
-    <!--<button class="btn" ng-click="mCollapse('item2')">Toggle collapse2</button>-->
-    <!--<div id="item2" collapse="collapsedItems['item2']">-->
-        <!--<div class="well well-large">Some content</div>-->
-    <!--</div>-->
-<!--</div>-->
-<ul id="list_discografia" ng-controller="DiscografiaCtrl" >
+<ul id="list_discografia" ng-controller="DiscografiaCtrl" class="nav nav-tabs nav-stacked span4" >
     <li ng-repeat="(key, disco) in discos">
         <a ng-click="mCollapse(key)">{{key}}</a>
-        <ul id="disco_{{key}}" collapse="collapsedItems[key]">
+        <ul id="{{key}}" collapse="collapsedItems[key]">
             <li ng-repeat="cancion in disco">
                 <a ng-click="open(key, cancion)">{{cancion}}</a>
             </li>
@@ -23,11 +12,12 @@
             <h4>{{selectedParent}} - {{selectedItem}}</h4>
         </div>
         <div class="modal-body">
-            <h5>Canciones</h5>
-            <h5>Videos</h5>
+            <tabs>
+                <pane ng-repeat="pane in panes" heading="{{pane.title}}" active="pane.active"><strong>asd</strong></pane>
+            </tabs>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-warning cancel" ng-click="close()">Cancel</button>
+            <button class="btn btn-success cancel" ng-click="close()">Cerrar</button>
         </div>
     </div>
 </ul>
