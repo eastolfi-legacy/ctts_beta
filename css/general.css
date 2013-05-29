@@ -29,3 +29,7 @@
 #list_discografia li a {
     cursor: pointer;
 }
+
+.focused {
+    background-color: green !important;
+}

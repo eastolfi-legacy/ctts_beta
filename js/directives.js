@@ -1,24 +1,94 @@
 'use strict';
 
 /* Directives */
-var app = angular.module('ctsweb', ['ui.bootstrap']);
+angular.module('ctsweb', ['ui.bootstrap']);
 
-app.directive('test', function($compile) {
-    var template = '<div>ola ke ase</div>';
-
-    var linker = function(scope, elem, attrs) {
-        elem.html(template).show();
-    };
-
+angular.module('ctsweb').directive('hello', function() {
     return {
         restrict: 'E',
+        template: '<button>Hello Button</button>',
         replace: true,
-        link: linker,
-        scope: {
-            content: '='
+        compile: function(element) {
+            element.bind('click', function() {
+                alert('Hello AngularJS!');
+            });
+            element.html('ola ke ase');
         }
-    };
+    }
 });
+angular.module('ctsweb').directive('focusable', function() {
+    return {
+        restrict: 'A',
+        compile: function(element, attrs) {
+            element.bind('focus', function() {
+                element.addClass('focused');
+                element.attr('placeholder', 'Haz clikc fuera');
+//                element.val(attrs.ngcontent);
+            });
+            element.bind('blur', function() {
+                element.removeClass('focused');
+                element.attr('placeholder', 'Haz clikc aquí');
+            });
+//            scope.$watch(attrs.ngcontent, function(val) {
+//                element.val(val);
+//            });
+        }
+    }
+});
+angular.module('ctsweb').directive('ngcontent', function($http) {
+    return function(scope, element, attrs) {
+//        var url = 'template/mine/'+attrs.ngcontent;
+        var url = 'http://ctts_server.eastolfi.c9.io/discos';
+        $http({
+            method: 'GET', url: url, contentType: 'jsonp'
+        }).success(function(data) {
+                alert(JSON.parse(data[0]));
+                element.html(data);
+            });
+    }
+});
+
+//angular.module('ctsweb').directive('dirTest', function() {
+//    return {
+//        restrict: 'A',
+//        compile: function(scope, element, attrs) {
+////            element.css('display', 'none');
+////            scope.$watch(attrs.ng-test)
+//              element.attr('placeholder', attrs);
+//        }
+//    }
+//});
+
+//app.directive('ngTest', function() {
+//    return function(scope, element, attrs) {
+//        element.css('display', 'none');
+//        scope.$watch(attrs.ngTest, function(value) {
+//            if (value) {
+//                element.fadeIn(200);
+//            }
+//            else {
+//                element.fadeOut(100);
+//            }
+//        });
+//    }
+//});
+
+//app.directive('test', function($compile) {
+//    var template = '<div>ola ke ase</div>';
+//
+//    var linker = function(scope, elem, attrs) {
+//        elem.html(template).show();
+//    };
+//
+//    return {
+//        restrict: 'A',
+//        replace: true,
+//        link: linker,
+//        scope: {
+//            content: '='
+//        }
+//    };
+//});
 
 //app.directive('contentItem', function ($compile) {
 //    var imageTemplate = '<div class="entry-photo"><h2>&nbsp;</h2><div class="entry-img"><span><a href="{{rootDirectory}}{{content.data}}"><img ng-src="{{rootDirectory}}{{content.data}}" alt="entry photo"></a></span></div><div class="entry-text"><div class="entry-title">{{content.title}}</div><div class="entry-copy">{{content.description}}</div></div></div>';

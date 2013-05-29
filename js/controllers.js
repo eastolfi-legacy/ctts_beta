@@ -1,6 +1,13 @@
 'use strict';
 
 /* Controllers */
+
+function GeneralController($scope){
+    $scope.setTitle = function(title) {
+        $scope.title = title;
+    }
+};
+
 function DiscografiaCtrl($scope) {
     $scope.collapsedItems = {'Maqueta' : true, 'Disco_1' : true, 'Live' : true};
     $scope.open = function(parent, item) {
@@ -22,10 +29,10 @@ function DiscografiaCtrl($scope) {
     }
 
     var content = '<h1>ola ke ase</h1>';
-
+//    content:$scope.paneContents[0]
     $scope.panes = [
         { title:"Imágenes", content:content, active: true },
-        { title:"Videos", content:"Dynamic content 2" }
+        { title:"Videos", content:content }
     ];
     var maqueta = ['Track 1', 'Track 2', 'Track 3'];
     var disco1 = ['Cancion 1', 'Cancion 2'];
