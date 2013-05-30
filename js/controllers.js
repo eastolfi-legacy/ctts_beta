@@ -23,7 +23,7 @@ function DiscografiaCtrl($scope, $http) {
 
     $scope.panesContent = ['', ''];
     $scope.panes = [
-        { title:"Im·genes", content:$scope.panesContent[0], active: true },
+        { title:"Im√°genes", content:$scope.panesContent[0], active: true },
         { title:"Videos", content:$scope.panesContent[1] }
     ];
     var maqueta = ['Track 1', 'Track 2', 'Track 3'];

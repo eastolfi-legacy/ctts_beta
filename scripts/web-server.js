@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
-var util = require('util'),
+var express = require('express'),
+    mongoose = require('mongoose'),
+    util = require('util'),
     http = require('http'),
     fs = require('fs'),
     url = require('url'),

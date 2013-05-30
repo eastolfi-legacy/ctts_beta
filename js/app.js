@@ -18,4 +18,9 @@ app.config(['$routeProvider', function($routeProvider) {
 //        when('/conciertos', {templateUrl: 'conciertos.html'}).
         when('/informacion', {templateUrl: 'informacion.html'}).
         otherwise({redirectTo: '/'});
-}]);
+    }],
+    ['$httpProvider', function($httpProvider) {
+        $httpProvider.defaults.useXDomain = true;
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    }]
+);
